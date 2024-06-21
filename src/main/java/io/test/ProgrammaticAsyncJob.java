@@ -29,6 +29,6 @@ public class ProgrammaticAsyncJob implements Function<ScheduledExecution, Uni<Vo
     @Override
     public Uni<Void> apply(ScheduledExecution scheduledExecution) {
         return Uni.createFrom()
-                .completionStage(managedExecutor.runAsync(() -> log.info(() -> "QuartzAsyncJob has been executed")));
+                .completionStage(managedExecutor.runAsync(() -> log.info(() -> "ProgrammaticAsyncJob has been executed")));
     }
 }

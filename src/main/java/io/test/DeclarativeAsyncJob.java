@@ -24,6 +24,6 @@ public class DeclarativeAsyncJob {
 
     @Scheduled(every = "1s")
     public CompletionStage<Void> run() {
-        return runAsync(() -> log.info(() -> "QuartzDeclarativeAsyncJob has been executed"), managedExecutor);
+        return runAsync(() -> log.info(() -> "DeclarativeAsyncJob has been executed"), managedExecutor);
     }
 }

@@ -27,23 +27,20 @@ of `Function<ScheduledExecution, Uni<Void>>`).
 ## Structure
 
 This application schedules two asynchronous quartz jobs to be run every second.
-One job is scheduled declaratively
-with `@Scheduled` ([DeclarativeAsyncJob](src/main/java/io/test/DeclarativeAsyncJob.java)),
-the other programmatically with `QuartzScheduler` at
+One job ([DeclarativeAsyncJob](src/main/java/io/test/DeclarativeAsyncJob.java)) is scheduled
+declaratively with `@Scheduled`,
+the other ([ProgrammaticAsyncJob](src/main/java/io/test/ProgrammaticAsyncJob.java)) programmatically
+with `QuartzScheduler` at
 startup ([ProgrammaticJobInitializer](src/main/java/io/test/ProgrammaticJobInitializer.java)).
 
 Both jobs just log a message on each execution.
 
 ## Steps to reproduce the bug
 
-Launch the application with
-
-```shell
-./mvnw quarkus:dev
-```
-
-You will notice that both jobs are running every second by the log they're printing.
-
-Now, restart the application by pressing `s`.
-
-The application fails to start due to the exception mentioned above.
+1. Launch the application with
+    ```shell
+    ./mvnw quarkus:dev
+    ```
+2. Notice that both jobs are printing a log message every second.
+3. Restart the application by pressing `s`.
+4. The application fails to start due to the exception mentioned above.
